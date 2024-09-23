@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your frontend URL
+    origin: 'https://inventory-management-31n6.vercel.app/', // Replace with your frontend URL
     credentials: true
 }));
 app.use(logHandler)
