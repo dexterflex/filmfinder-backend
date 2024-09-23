@@ -20,12 +20,15 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://inventory-management-31n6.vercel.app/', // Replace with your frontend URL
+    origin: 'http://localhost:3000', // Replace with your frontend URL
     credentials: true
 }));
 app.use(logHandler)
 
 // routes
+app.get('/', (req, res) => {
+    res.send("Hello world")
+})
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRouter)
 
@@ -38,7 +41,7 @@ app.use((req, res) => {
 // Error handling middleware should be the last middleware
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     setupMongoose()
     console.log(`Server is running on port ${PORT}`);
