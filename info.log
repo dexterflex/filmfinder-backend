@@ -580,3 +580,4 @@
 {"level":"info","message":"DATE -> Tue Sep 24 2024 03:13:07 GMT+0530 (India Standard Time) : METHOD -> GET : PATH -> /api/movies/search?query= : BODY -> {}","service":"user-service"}
 {"level":"info","message":"DATE -> Tue Sep 24 2024 03:13:08 GMT+0530 (India Standard Time) : METHOD -> GET : PATH -> /api/movies/search?query= : BODY -> {}","service":"user-service"}
 {"level":"info","message":"DATE -> Tue Sep 24 2024 03:13:08 GMT+0530 (India Standard Time) : METHOD -> GET : PATH -> /api/movies/search?query= : BODY -> {}","service":"user-service"}
+{"level":"info","message":"DATE -> Tue Sep 24 2024 04:02:06 GMT+0530 (India Standard Time) : METHOD -> GET : PATH -> /api/movies/popular : BODY -> {}","service":"user-service"}
