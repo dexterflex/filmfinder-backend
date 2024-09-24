@@ -32,7 +32,7 @@ class UserRepository {
             if (!match) {
                 throw new ApplicationError(401, 'Authentication failed');
             }
-            const token = jwt.sign({ id: user._id, email: user.email }, secret, { expiresIn: '1h' });
+            const token = jwt.sign({ id: user._id, email: user.email }, secret, { expiresIn: '2d' });
             return { user, token };
         } catch (error) {
             throw error;
