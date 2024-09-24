@@ -1,13 +1,13 @@
 import 'dotenv/config'
 import express, { urlencoded } from 'express';
 import cookieParser from 'cookie-parser';
-import authRoutes from './routes/authRoutes.js';
 import cors from 'cors'
 
 import errorHandler from './middlewares/errorHandler.js';
 import setupMongoose from './config/db.js';
 import movieRouter from './routes/movieRoutes.js';
 import logHandler from './middlewares/logger.js';
+import authRouter from './routes/authRoutes.js';
 
 
 
@@ -31,7 +31,7 @@ app.use(logHandler)
 app.get('/', (req, res) => {
     res.send("Hello world")
 })
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRouter);
 app.use('/api/movies', movieRouter)
 
 
