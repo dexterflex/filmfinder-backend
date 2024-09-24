@@ -21,8 +21,6 @@ app.use(urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(cors({
     origin: 'https://inventory-management-31n6.vercel.app', // Allow requests only from this domain
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow specific HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
     credentials: true, // Allow cookies to be included
 }));
 app.use(logHandler)
