@@ -631,3 +631,4 @@
 {"level":"info","message":"DATE -> Tue Sep 24 2024 15:21:28 GMT+0530 (India Standard Time) : METHOD -> POST : PATH -> /api/auth/signin : BODY -> {\"email\":\"testing@gmail.com\",\"password\":\"testing@1\",\"name\":\"testing\"}","service":"user-service"}
 {"level":"info","message":"DATE -> Tue Sep 24 2024 15:30:58 GMT+0530 (India Standard Time) : METHOD -> POST : PATH -> /api/auth/logout : BODY -> {}","service":"user-service"}
 {"level":"info","message":"DATE -> Tue Sep 24 2024 15:31:12 GMT+0530 (India Standard Time) : METHOD -> POST : PATH -> /api/auth/signin : BODY -> {\"email\":\"testing@gmail.com\",\"password\":\"testing@1\"}","service":"user-service"}
+{"level":"info","message":"DATE -> Tue Sep 24 2024 15:35:45 GMT+0530 (India Standard Time) : METHOD -> POST : PATH -> /api/auth/signin : BODY -> {\"email\":\"testing@gmail.com\",\"password\":\"testing@1\"}","service":"user-service"}
