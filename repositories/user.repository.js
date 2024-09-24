@@ -13,7 +13,11 @@ class UserRepository {
             if (existingUser) {
                 throw new ApplicationError(400, 'Email already in use');
             }
-            const user = new User({ name, email, password });
+
+            // Hash the password before saving the user
+            const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+
+            const user = new User({ name, email, password: hashedPassword });
             await user.save();
             return user;
         } catch (error) {
@@ -28,10 +32,14 @@ class UserRepository {
             if (!user) {
                 throw new ApplicationError(401, 'Authentication failed');
             }
+
+            // Compare the hashed password
             const match = await bcrypt.compare(password, user.password);
             if (!match) {
                 throw new ApplicationError(401, 'Authentication failed');
             }
+
+            // Generate JWT token
             const token = jwt.sign({ id: user._id, email: user.email }, secret, { expiresIn: '2d' });
             return { user, token };
         } catch (error) {
