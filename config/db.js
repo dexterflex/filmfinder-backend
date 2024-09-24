@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { ApplicationError } from '../middlewares/errorHandler.js';
 const connectDB = async () => {
     try {
-        mongoose.connect(process.env.MONGO_URL);
+        await mongoose.connect(process.env.MONGO_URL);
         console.log('MongoDB connected');
     } catch (error) {
         console.error('MongoDB connection failed', error);
