@@ -28,8 +28,8 @@ app.use(cors({
 app.use(logHandler)
 
 // routes
-app.use('/api/auth', authRouter);
 app.use('/api/movies', movieRouter)
+app.use('/api/auth', authRouter);
 
 
 // 404 route 
