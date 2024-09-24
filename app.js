@@ -28,9 +28,6 @@ app.use(cors({
 app.use(logHandler)
 
 // routes
-app.get('/', (req, res) => {
-    res.send("Hello world")
-})
 app.use('/api/auth', authRouter);
 app.use('/api/movies', movieRouter)
 
