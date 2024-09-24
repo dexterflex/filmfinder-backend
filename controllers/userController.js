@@ -17,7 +17,7 @@ export const signin = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const { user, token } = await UserRepository.login({ email, password });
-        res.cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
+        res.cookie('token', token, { httpOnly: true });
         res.status(200).send({ success: true, msg: 'User logged in successfully', user, token });
     } catch (error) {
         next(error);
