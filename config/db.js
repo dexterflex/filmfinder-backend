@@ -1,10 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected');
+    } catch (error) {
+        console.error('MongoDB connection failed', error);
+        throw new ApplicationError(500, 'Failed to connect to database');
+    }
+};
 
-const setupMongoose = () => {
-    mongoose.connect(process.env.MONGO_URL)
-        .then(() => console.log('MongoDB connected'))
-        .catch(err => console.error(err));
-}
-
-export default setupMongoose;
+export default connectDB;

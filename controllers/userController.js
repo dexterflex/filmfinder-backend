@@ -1,5 +1,4 @@
 import UserRepository from '../repositories/user.repository.js';
-import { ApplicationError } from '../middlewares/errorHandler.js';
 
 // Register a new user
 export const signup = async (req, res, next) => {

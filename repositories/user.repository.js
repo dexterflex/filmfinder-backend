@@ -14,13 +14,17 @@ class UserRepository {
                 throw new ApplicationError(400, 'Email already in use');
             }
 
-            const user = new User({ name, email, password });
+            // Hash the password before saving
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            const user = new User({ name, email, password: hashedPassword });
             await user.save();
             return user;
         } catch (error) {
             throw error;
         }
     }
+
 
     // Login a user
     static async login({ email, password }) {

@@ -4,11 +4,10 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 
 import errorHandler from './middlewares/errorHandler.js';
-import setupMongoose from './config/db.js';
 import movieRouter from './routes/movieRoutes.js';
 import logHandler from './middlewares/logger.js';
 import authRouter from './routes/authRoutes.js';
-
+import connectDb from './config/db.js'
 
 
 
@@ -40,6 +39,6 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-    setupMongoose()
+    connectDb()
     console.log(`Server is running on port ${PORT}`);
 });
