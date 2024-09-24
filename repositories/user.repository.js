@@ -1,9 +1,9 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { ApplicationError } from '../middlewares/errorHandler.js';
+import { ApplicationError } from '../middlewares/errorHandler.js'
 
-const secret = process.env.JWT_SECRET || 'your_jwt_secret'; // Ensure to set this in your .env file
+const secret = process.env.JWT_SECRET; // Ensure to set this in your .env file
 
 class UserRepository {
     // Register a new user
@@ -14,10 +14,7 @@ class UserRepository {
                 throw new ApplicationError(400, 'Email already in use');
             }
 
-            // Hash the password before saving the user
-            const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
-
-            const user = new User({ name, email, password: hashedPassword });
+            const user = new User({ name, email, password });
             await user.save();
             return user;
         } catch (error) {
@@ -34,7 +31,8 @@ class UserRepository {
             }
 
             // Compare the hashed password
-            const match = await bcrypt.compare(password, user.password);
+            const match = await bcrypt.compare(password, user.password)
+
             if (!match) {
                 throw new ApplicationError(401, 'Authentication failed');
             }
